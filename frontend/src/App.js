@@ -11,9 +11,11 @@ function App() {
   };
 
   return (
-    <div>
-      <h1>Product Management</h1>
+    <div className='w-full min-h-screen p-8 bg-gray-100 flex flex-col items-center'>
+      <h1 className='text-4xl font-bold text-gray-800 mb-8'>CRUD de Productos</h1>
+
       <ProductList />
+
       {editingProductId && (
         <EditProduct
           productId={editingProductId}

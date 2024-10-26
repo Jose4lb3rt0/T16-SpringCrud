@@ -1,31 +1,33 @@
-import React, { useState } from 'react'
-import api from '../api'
+import React, { useState } from 'react';
+import api from '../api';
 
-function AddProduct({ fetchProducts }) { 
-  const [nombre, setNombre] = useState('')
-  const [precio, setPrecio] = useState('')
+function AddProduct({ fetchProducts }) {
+  const [nombre, setNombre] = useState('');
+  const [precio, setPrecio] = useState('');
 
   const handleSubmit = async (e) => {
-    e.preventDefault()
+    e.preventDefault();
     try {
-      await api.post('/crear', { nombre, precio })
-      setNombre('')
-      setPrecio('')
-      fetchProducts() 
+      await api.post('/crear', { nombre, precio });
+      setNombre('');
+      setPrecio('');
+      fetchProducts();
     } catch (error) {
-      console.error("Error creating product:", error)
+      console.error("Error creating product:", error);
     }
-  }
+  };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h2>Add Product</h2>
+    <form onSubmit={handleSubmit} className='p-4 mb-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm'>
+      <h2 className='text-xl font-semibold text-center text-gray-700 mb-4'>Agregar Producto</h2>
+      
       <input
         type="text"
         placeholder="Nombre"
         value={nombre}
         onChange={(e) => setNombre(e.target.value)}
         required
+        className='w-full p-2 mb-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400'
       />
       <input
         type="number"
@@ -33,10 +35,16 @@ function AddProduct({ fetchProducts }) {
         value={precio}
         onChange={(e) => setPrecio(e.target.value)}
         required
+        className='w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400'
       />
-      <button type="submit">Add Product</button>
+      <button
+        type="submit"
+        className='w-full py-2 bg-yellow-500 text-white rounded-lg hover:bg-yellow-600 transition-colors'
+      >
+        Agregar Producto
+      </button>
     </form>
-  )
+  );
 }
 
-export default AddProduct
+export default AddProduct;

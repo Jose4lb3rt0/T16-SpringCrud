@@ -1,26 +1,21 @@
-import React, { useState } from 'react';
-import api from '../api';
+import React, { useState } from 'react'
+import { createProduct } from '../api/productApi'
 
 function AddProduct({ fetchProducts }) {
-  const [nombre, setNombre] = useState('');
-  const [precio, setPrecio] = useState('');
+  const [nombre, setNombre] = useState('')
+  const [precio, setPrecio] = useState('')
 
   const handleSubmit = async (e) => {
-    e.preventDefault();
-    try {
-      await api.post('/crear', { nombre, precio });
-      setNombre('');
-      setPrecio('');
-      fetchProducts();
-    } catch (error) {
-      console.error("Error creating product:", error);
-    }
-  };
+    e.preventDefault()
+    await createProduct({ nombre, precio })
+    setNombre('')
+    setPrecio('')
+    fetchProducts()  
+  }
 
   return (
     <form onSubmit={handleSubmit} className='p-4 mb-6 bg-gray-50 border border-gray-200 rounded-lg shadow-sm'>
       <h2 className='text-xl font-semibold text-center text-gray-700 mb-4'>Agregar Producto</h2>
-      
       <input
         type="text"
         placeholder="Nombre"
@@ -44,7 +39,7 @@ function AddProduct({ fetchProducts }) {
         Agregar Producto
       </button>
     </form>
-  );
+  )
 }
 
-export default AddProduct;
+export default AddProduct

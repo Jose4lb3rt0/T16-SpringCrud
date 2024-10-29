@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@CrossOrigin(origins = "http://localhost:3000") // Permite las solicitudes desde React
+@CrossOrigin(origins = "http://localhost:3000") 
 @RestController
 @RequestMapping("/api/productos")
 public class ProductoController {

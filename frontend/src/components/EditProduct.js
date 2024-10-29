@@ -37,6 +37,7 @@ function EditProduct({ productId, fetchProducts, onClose }) {
         value={precio}
         onChange={(e) => setPrecio(e.target.value)}
         required
+        step="0.01"
         className='w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400'
         placeholder="Precio del Producto"
       />

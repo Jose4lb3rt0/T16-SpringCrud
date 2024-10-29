@@ -7,6 +7,6 @@ import java.util.List;
 public interface ProductoService {
     List<Producto> listar();
     Producto findById(Long id);
-    Producto save(Producto producto);  // Crear o actualizar un producto
+    Producto save(Producto producto); 
     void delete(Long id);
 }

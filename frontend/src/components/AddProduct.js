@@ -30,6 +30,7 @@ function AddProduct({ fetchProducts }) {
         value={precio}
         onChange={(e) => setPrecio(e.target.value)}
         required
+        step="0.01"
         className='w-full p-2 mb-4 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-yellow-400'
       />
       <button

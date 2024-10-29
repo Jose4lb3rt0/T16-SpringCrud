@@ -1,0 +1,12 @@
+Base de datos mysql:
+1. Importar el archivo spring_crud.sql a tu mysql, creará el esquema con su tabla productos.
+
+Spring:
+2. Abrir el proyecto e intentar correrlo.
+3. Cambiar el "server.port" solo si hace falta.
+4. En WebConfig se da permiso de metodos al puerto 3000, cambiar si hace falta (sirve para el frontend)
+5. Correr el proyecto usando el IntelliJ Idea.
+
+React:
+6. Verificar si en el archivo "api.js" el numero de puerto coincide con el del api lanzado por el spring, por defecto esta en 9050.
+7. Aplicar "cd frontend" y "npm start" para levantar el proyecto de react en el puerto 3000.
